@@ -34,7 +34,8 @@ describe("SimpleStorage", function (params) {
         const { favoriteNumber, name } = await simpleStorage.people(0)
         assert.equal(name, expectedPersonName)
         assert.equal(favoriteNumber, expectedFavoriteNumber)
-        const lengthOfPeople = await simpleStorage.people.length
+        // const lengthOfPeople = await simpleStorage.people.length
+        const lengthOfPeople = await getNumberOfPeople();
         console.log(lengthOfPeople)
         assert.equal(lengthOfPeople, 1)
     })
