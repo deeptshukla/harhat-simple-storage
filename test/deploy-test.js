@@ -24,8 +24,13 @@ describe("SimpleStorage", function (params) {
     })
 
     it("Person should be added when calling addPerson", async function () {
+        // Two ways, uncomment as necessary:
+        
+        // 1. One value
+        /*
         const expectedPersonName = "deept"
         const expectedFavoriteNumber = "12"
+        const 
         const transactionResponse = await simpleStorage.addPerson(
             expectedPersonName,
             expectedFavoriteNumber
@@ -34,8 +39,43 @@ describe("SimpleStorage", function (params) {
         const { favoriteNumber, name } = await simpleStorage.people(0)
         assert.equal(name, expectedPersonName)
         assert.equal(favoriteNumber, expectedFavoriteNumber)
-        const lengthOfPeople = await simpleStorage.people.length
+        const lengthOfPeople = await simpleStorage.getPeopleLength()
         console.log(lengthOfPeople)
         assert.equal(lengthOfPeople, 1)
+        */
+        
+        
+        // Two values:
+        /*
+        const expectedPersonName = "deept"
+        const expectedPersonName2 = "deep2"
+        const expectedFavoriteNumber = "12"
+        const expectedFavoriteNumber2 = "13"
+        const 
+        const transactionResponse = await simpleStorage.addPerson(
+            expectedPersonName,
+            expectedFavoriteNumber
+        )
+        await transactionResponse.wait(1)
+        
+        const transactionResponse2 = await simpleStorage.addPerson(
+            expectedPersonName2,
+            expectedFavoriteNumber2
+        )
+        await transactionResponse2.wait(1)
+        
+        // First object check: Index 0
+        const { favoriteNumber, name } = await simpleStorage.people(0)
+        assert.equal(name, expectedPersonName)
+        assert.equal(favoriteNumber, expectedFavoriteNumber)
+        
+        // Second object check: Index 1
+        const { favoriteNumber, name } = await simpleStorage.people(1)
+        assert.equal(name, expectedPersonName2)
+        assert.equal(favoriteNumber, expectedFavoriteNumber2)
+        const lengthOfPeople = await simpleStorage.getPeopleLength()
+        console.log(lengthOfPeople)
+        assert.equal(lengthOfPeople, 2)
+        */
     })
 })
